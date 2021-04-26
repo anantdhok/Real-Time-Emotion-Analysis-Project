@@ -1,0 +1,44 @@
+.community {
+  display: flex;
+  flex-direction: row;
+  margin: 140px 0;
+  text-align: center;
+}
+
+.community h1 {
+  font-size: 44px;
+  font-weight: lighter;
+  line-height: 56px;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.community p {
+  padding: 20px 15% 60px;
+}
+
+.community-submits {
+  width: 100%;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .community {
+    margin: 120px 0 60px;
+    text-align: left;
+  }
+
+  .community h1 {
+    font-size: 36px;
+    line-height: 44px;
+    margin: 0 auto 20px;
+  }
+
+  .community p {
+    padding: 10px 0 40px;
+  }
+
+  .community-submits {
+    text-align: left;
+  }
+}

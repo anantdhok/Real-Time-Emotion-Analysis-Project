@@ -1,0 +1,39 @@
+:root {
+  --blue: #0c71e0;
+}
+
+.link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-position: under;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: blue;
+}
+
+p {
+  font-size: 16px;
+  line-height: 28px;
+}
+
+h1 {
+  font-size: 42px;
+  line-height: 50px;
+}
+
+@media screen and (max-width: 800px) {
+  p {
+    font-size: 14px;
+    line-height: 26px;
+  }
+
+  h1 {
+    font-size: 38px;
+    line-height: 50px;
+  }
+}

@@ -1,0 +1,64 @@
+.input-field {
+  line-height: 44px;
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 20px 0;
+}
+
+label {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  cursor: text;
+  transition: 0.2s all ease-in-out;
+  color: #000;
+}
+
+input,
+select {
+  font-size: 15px;
+  width: 100%;
+  padding: 0.5rem 0;
+  color: #000;
+  border: 0;
+  border-bottom: 2px solid #ddd;
+  outline: 0;
+  background: transparent;
+}
+
+input:focus,
+select:focus {
+  border-color: royalblue;
+}
+
+input:invalid,
+select:invalid {
+  outline: 0;
+}
+
+label:focus,
+input:focus ~ label,
+input:valid ~ label,
+select:focus ~ label,
+select:valid ~ label {
+  font-size: 12px;
+  top: -25px;
+  color: royalblue;
+}
+
+input[type="email"]:not(:placeholder-shown) ~ label,
+input[type="password"]:not(:placeholder-shown) ~ label {
+  font-size: 12px;
+  top: -25px;
+  color: royalblue;
+}
+
+input[type="date"]:required:invalid::-webkit-datetime-edit {
+  color: transparent;
+}
+
+input[type="date"]:focus::-webkit-datetime-edit {
+  color: #000 !important;
+}

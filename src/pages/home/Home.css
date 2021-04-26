@@ -1,0 +1,44 @@
+.dashboard {
+  padding: 150px 0;
+}
+
+.dashboard-content {
+max-width: 40%;
+  height: fit-content;
+  margin: 40px 0;
+}
+
+.dashboard-content h3 {
+  font-size: 48px;
+  font-weight: lighter;
+  line-height: 60px;
+}
+
+.dashboard-content p {
+  font-size: 15px;
+  font-weight: normal;
+  padding: 20px 0;
+}
+
+.dashboard-content .input-field {
+  margin: 40px 0;
+}
+
+@media (max-width: 768px) {
+  
+  .dashboard-content {
+    margin: 80px 0;
+    max-width: 100%;
+  }
+
+  .dashboard-content h3 {
+    font-size: 48px;
+    line-height: 60px;
+  }
+
+  .dashboard-content p {
+    font-size: 16px;
+    font-weight: normal;
+    padding: 20px 0;
+  }
+}

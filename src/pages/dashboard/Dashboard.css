@@ -1,0 +1,49 @@
+.home {
+  padding: 180px 0;
+}
+
+.home-content {
+  height: fit-content;
+  margin-top: 30px;
+}
+
+.home-content h3 {
+  font-size: 48px;
+  font-weight: lighter;
+  line-height: 60px;
+}
+
+.home-content-alerts {
+  font-size: 10px;
+  letter-spacing: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 15px 0;
+}
+
+.home-content-notice {
+  font-size: 20px;
+  font-weight: lighter;
+  padding: 15px 0;
+}
+
+.home-options {
+  margin: 20px 0;
+}
+
+@media (max-width: 768px) {
+  .home-content {
+    text-align: left;
+  }
+
+  .home-content h1 {
+    font-size: 48px;
+    line-height: 60px;
+  }
+
+  .home-content p {
+    font-size: 16px;
+    font-weight: normal;
+    padding: 20px 0;
+  }
+}

@@ -1,0 +1,96 @@
+.footer {
+  margin: 5rem auto;
+  text-align: center;
+  justify-content: center;
+}
+
+.footer-button {
+  font-size: 13px;
+  display: flex;
+  flex-direction: row;
+  width: 38%;
+  margin: 14px auto;
+  padding: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 0;
+  border-radius: 5px;
+  outline: none;
+  align-items: center;
+}
+
+.footer-button .icon {
+  font-size: 18px;
+  margin: 0 0.5rem;
+}
+
+.github {
+  font-weight: 600;
+  color: #fff !important;
+  background: #000 !important;
+  justify-content: center;
+}
+
+.medium {
+  font-weight: 600;
+  color: #000 !important;
+  background: #eee !important;
+  justify-content: center;
+}
+
+.github:hover {
+  transform: translateY(-3px);
+  background: #333 !important;
+}
+
+.medium:hover {
+  transform: translateY(-3px);
+  background: #ddd !important;
+}
+
+.footer-link {
+  font-size: 14px;
+  display: block;
+  margin: 30px auto 0;
+  text-decoration: underline;
+  color: #000;
+  text-underline-position: under;
+}
+
+.copyright {
+  font-size: 16px;
+  padding: 25px 0;
+  text-align: center;
+  color: #fff;
+  background: #000;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    margin: 3rem auto;
+  }
+  
+  .footer-button {
+    font-size: 12px;
+    width: 100%;
+    margin: 12px auto;
+    padding: 13px;
+  }
+
+  .footer-button .icon {
+    font-size: 16px;
+  }
+
+  .footer-link {
+    font-size: 12px;
+    width: 100%;
+    margin: 35px auto 0;
+  }
+
+  .copyright {
+    font-size: 14px;
+    padding: 22px 0;
+  }
+}

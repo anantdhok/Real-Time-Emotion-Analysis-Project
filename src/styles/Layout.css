@@ -1,0 +1,35 @@
+.container {
+  z-index: 1;
+  width: 100%;
+  max-width: 1250px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: stretch;
+}
+
+.col {
+  padding: 0 15px;
+  flex: 1;
+  max-width: 50%;
+  flex-basis: 50%;
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    padding: 0 30px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .col {
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+}
