@@ -1,66 +1,56 @@
-import React, { useContext } from "react";
+import React from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../../context/auth-context";
+import { signoutUser } from "../../../store/actions/authActions";
 import "./NavLinks.css";
-import { useHistory } from "react-router-dom";
 
 const NavLinks = (props) => {
-  const history = useHistory();
-  const auth = useContext(AuthContext);
-
-  function onLogout() {
-    console.log(history);
-    auth.logout();
-    history.push("/auth");
-  }
+  const signoutDone = () => {
+    props.signoutAction();
+    window.location.href = "./signin";
+  };
   return (
     <ul className="nav-links">
-      <li>
-        <Link to="/community" exact>
-          Community
-        </Link>
-      </li>
-
-      <li>
-        <Link to="/signin" exact>
-          Sign In
-        </Link>
-      </li>
-
-      {auth.isLoggedIn && (
-        <div>
+      {!props.auth.isAuthenticated ? (
+        <>
           <li>
-            <Link to="/profile">Patients</Link>
+            <Link to="/community">Community</Link>
           </li>
           <li>
-            <Link to="/mypost">Schedule</Link>
+            <Link to="/signin">Sign In</Link>
           </li>
           <li>
-            <Link to="/mypost">History</Link>
-          </li>
-          <li>
-            <Link to="/">
-              <b>Logout</b>
+            <Link to="/signup">
+              <button className="button-dark">Get Started</button>
             </Link>
           </li>
-        </div>
-      )}
-
-      {!auth.isLoggedIn && (
-        <li>
-          <Link to="/signup">
-            <button className="button-dark">Get Started</button>
-          </Link>
-        </li>
-      )}
-
-      {auth.isLoggedIn && (
-        <li>
-          <button onClick={onLogout}>Logout</button>
-        </li>
+        </>
+      ) : (
+        <>
+          <li>
+            <Link to="/patients">Patients</Link>
+          </li>
+          <li>
+            <Link to="/Schedule">Schedule</Link>
+          </li>
+          <li>
+            <Link to="/history">History</Link>
+          </li>
+          <li>
+            <Link onClick={signoutDone}>Logout</Link>
+          </li>
+        </>
       )}
     </ul>
   );
 };
 
-export default NavLinks;
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth,
+  };
+};
+const mapDispatchToProps = {
+  signoutAction: signoutUser,
+};
+export default connect(mapStateToProps, mapDispatchToProps)(NavLinks);

@@ -3,7 +3,7 @@ import Navigation from "../../components/navigation/Navigation";
 import { FooterSources } from "../../components/footer/Footer";
 import "./Welcome.css";
 
-export default function welcome() {
+function Welcome() {
   return (
     <>
       <Navigation />
@@ -41,3 +41,13 @@ export default function welcome() {
     </>
   );
 }
+
+function NotFound() {
+  return (
+    <div className="welcome-notFound">
+      <h1>Oops! This page is not found.</h1>
+    </div>
+  );
+}
+
+export { Welcome, NotFound };

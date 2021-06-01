@@ -6,6 +6,26 @@
   margin: 20px 0;
 }
 
+.input-field p {
+  font-size: 12px;
+  font-weight: bold;
+  width: fit-content;
+  position: absolute;
+  top: 10px;
+  left: 91%;
+  cursor: pointer;
+}
+
+.input-error {
+  color: #d30000;
+  margin: 50px 0;
+}
+
+.input-error p {
+  font-size: 16px;
+  font-weight: normal;
+}
+
 label {
   position: absolute;
   z-index: -1;
@@ -13,7 +33,7 @@ label {
   left: 0;
   cursor: text;
   transition: 0.2s all ease-in-out;
-  color: #000;
+  color: #777;
 }
 
 input,
@@ -48,6 +68,7 @@ select:valid ~ label {
   color: royalblue;
 }
 
+input[type="text"]:not(:placeholder-shown) ~ label,
 input[type="email"]:not(:placeholder-shown) ~ label,
 input[type="password"]:not(:placeholder-shown) ~ label {
   font-size: 12px;

@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import Time from "../../utils/Time";
 import Navigation from "../../components/navigation/Navigation";
 import { Footer } from "../../components/footer/Footer";
 import "./Home.css";
 
-export default function Home() {
-  let user = { license: "123", name: "Anant" };
-
-  const [time, setTime] = useState(new Date().toLocaleTimeString());
+const Home = (props) => {
   useEffect(() => {
-    var timer = setInterval(() => setTime(new Date().toLocaleTimeString()), 1000);
-    return function cleanup() {
-      clearInterval(timer);
-    };
-  });
+    if (!props.auth.isAuthenticated) {
+      props.history.push("/signin");
+    }
+  }, [props]);
+
+  const [user, setUser] = useState({});
+  useEffect(() => {
+    setUser(props.auth.user.data);
+  }, [props.auth.user]);
 
   const timeZone = () => {
     var n = new Date().getHours();
@@ -29,12 +32,15 @@ export default function Home() {
       <div className="container home">
         <div className="row">
           <div className="home-content">
-            <p className="home-content-alerts" style={user.license ? { color: "blue" } : { color: "gray" }}>
-              {user.license ? "Community Account" : "User Account"}
+            <p
+              className="home-content-alerts"
+              style={user.hasOwnProperty("license") ? { color: "blue" } : { color: "gray" }}
+            >
+              {user.hasOwnProperty("license") ? "Community Account" : "User Account"}
             </p>
             <h3>
-              {time} <br />
-              {timeZone()}, {user.name}!
+              <Time /><br />
+              {timeZone()}, {user.first}!
             </h3>
             <p className="home-content-notice">Hope you're good today.</p>
           </div>
@@ -53,4 +59,12 @@ export default function Home() {
       <Footer />
     </>
   );
-}
+};
+
+const mapStateToProps = (state) => {
+  console.log("home", state);
+  return {
+    auth: state.auth,
+  };
+};
+export default connect(mapStateToProps, null)(Home);

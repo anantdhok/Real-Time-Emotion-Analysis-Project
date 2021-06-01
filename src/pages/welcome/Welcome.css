@@ -44,6 +44,19 @@
   padding: 20px 15% 0;
 }
 
+.welcome-notFound {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 48%;
+  left: 50%;
+}
+
+.welcome-notFound h1 {
+  font-size: 44px;
+  font-weight: lighter;
+  line-height: 80px;
+}
+
 @media (max-width: 1200px) {
   .welcome {
     margin: 120px 0 60px;

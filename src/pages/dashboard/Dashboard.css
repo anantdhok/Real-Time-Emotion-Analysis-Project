@@ -1,49 +1,66 @@
-.home {
-  padding: 180px 0;
+.dashboard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 150px 0;
 }
 
-.home-content {
-  height: fit-content;
-  margin-top: 30px;
+.dashboard-media {
+  display: flex;
+  text-align: right;
+  margin: 30px 50px;
 }
 
-.home-content h3 {
-  font-size: 48px;
-  font-weight: lighter;
-  line-height: 60px;
+.dashboard-alert {
+  width: 100%;
 }
 
-.home-content-alerts {
-  font-size: 10px;
-  letter-spacing: 5px;
-  font-weight: bold;
-  text-transform: uppercase;
-  padding: 15px 0;
+.dashboard-analytics {
+  position: fixed;
+  left: 2%;
+  top: 32%;
+  height: 25%;
+  color: white;
 }
 
-.home-content-notice {
-  font-size: 20px;
-  font-weight: lighter;
-  padding: 15px 0;
+.dashboard-options {
+  width: 100%;
+  position: fixed;
+  padding: 0 20px;
+  bottom: 8%;
+  text-align: center;
 }
 
-.home-options {
-  margin: 20px 0;
+.dashboard-options button:hover {
+  color: red;
+  border: 1px solid red;
 }
 
-@media (max-width: 768px) {
-  .home-content {
-    text-align: left;
-  }
+.local-stream-false {
+  width: 80%;
+}
 
-  .home-content h1 {
-    font-size: 48px;
-    line-height: 60px;
-  }
+.local-stream-true {
+  position: fixed;
+  left: 2%;
+  top: 3%;
+  height: 25%;
+}
 
-  .home-content p {
-    font-size: 16px;
-    font-weight: normal;
-    padding: 20px 0;
-  }
+.client-stream {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  background-size: cover;
+}
+
+.input-options {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
