@@ -31,8 +31,8 @@ exports.signup = (req, res, next) => {
           secret: password,
         });
 
-        bcrypt.genSalt(10, function (err, salt) {
-          bcrypt.hash(password, salt, function (err, hash) {
+        bcrypt.genSalt(10, (err, salt) => {
+          bcrypt.hash(password, salt, (err, hash) => {
             if (err) throw err;
             newUser.secret = hash;
             newUser
@@ -63,28 +63,29 @@ exports.signin = (req, res) => {
   let errors = [];
   let { email, password } = req.body;
 
-  if (!email) errors.push({ email: "Email is required" });
-  else if (!emailRegex.test(email)) errors.push({ email: "Email is invalid" });
-  if (!password) errors.push({ password: "Password is required" });
-  if (errors.length > 0) return res.status(422).json({ errors: errors });
+  if (!email) errors.push("Email is required.");
+  else if (!emailRegex.test(email)) errors.push("Email is invalid.");
+  if (!password) errors.push("Password is required.");
+  if (errors.length > 0) return res.status(422).json({ errors });
 
   User.findOne({ email: email })
     .then((user) => {
       if (!user)
         return res.status(404).json({
-          errors: [{ user: "Account with this email does not exists" }],
+          errors: [{ user: "Account with this email does not exists." }],
         });
       else
-        bcrypt.compare(password, user.secret)
+        bcrypt
+          .compare(password, user.secret)
           .then((isMatch) => {
-            if (!isMatch) return res.status(400).json({ errors: [{ password: "Password is incorrect" }] });
-            let access_token = createJWT(user.email, user._id, 3600);
-            jwt.verify(access_token, process.env.TOKEN_SECRET, (err, decoded) => {
+            if (!isMatch) return res.status(400).json({ errors: ["Password is incorrect."] });
+            let access = createJWT(user, 3600);
+            jwt.verify(access, process.env.TOKEN_SECRET, (err, decoded) => {
               if (err) res.status(500).json({ erros: err });
               if (decoded)
                 return res.status(200).json({
                   success: true,
-                  token: access_token,
+                  token: access,
                   message: user,
                 });
             });

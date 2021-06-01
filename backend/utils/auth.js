@@ -1,9 +1,8 @@
 const jwt = require("jsonwebtoken");
 
-exports.createJWT = (email, userId, duration) => {
+exports.createJWT = (data, duration) => {
   const payload = {
-    email,
-    userId,
+    data,
     duration,
   };
   return jwt.sign(payload, process.env.TOKEN_SECRET, {
